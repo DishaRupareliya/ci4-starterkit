@@ -3,5 +3,6 @@
 <link rel="stylesheet" href="<?= base_url('assets/plugins/fontawesome-free/css/all.min.css') ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/select2/css/select2.min.css') ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/sweetalert2/css/sweetalert2.min.css') ?>">
+<link rel="stylesheet" href="<?= base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
 
 <?= $this->renderSection('css') ?>

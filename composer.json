@@ -12,7 +12,8 @@
         "codeigniter4/framework": "^4.0",
         "agungsugiarto/codeigniter4-eloquent": "^2.0",
         "codeigniter4/settings": "^2.1",
-        "bainternet/php-hooks": "^1.0"
+        "bainternet/php-hooks": "^1.0",
+        "codeigniter4/shield": "dev-develop"
     },
     "require-dev": {
         "mikey179/vfsstream": "1.6.*",
@@ -35,5 +36,6 @@
         "source": "https://github.com/codeigniter4/CodeIgniter4",
         "slack": "https://codeigniterchat.slack.com"
     },
-    "prefer-stable": true
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }

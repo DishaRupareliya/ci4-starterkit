@@ -3,7 +3,7 @@
 ## Welcome to ci4-starterkit
 =========================
 
-Your powerful web application kick-start based on CodeIgniter 4.3.5
+Your powerful web application kick-start based on CodeIgniter 4.4.0
 
 #### Third-Party Packages added in application
 
