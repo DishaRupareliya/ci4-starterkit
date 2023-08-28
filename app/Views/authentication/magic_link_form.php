@@ -14,28 +14,17 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">No problem! Enter your email below and we will send instructions to reset your password.</p>
-                <?php if (session('error') !== null) : ?>
-                    <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
-                <?php elseif (session('errors') !== null) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php if (is_array(session('errors'))) : ?>
-                            <?php foreach (session('errors') as $error) : ?>
-                                <?= $error ?>
-                                <br>
-                            <?php endforeach ?>
-                        <?php else : ?>
-                            <?= session('errors') ?>
-                        <?php endif ?>
-                    </div>
-                <?php endif ?>
                 <form action="<?= url_to('magic-link') ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" autocomplete="email" placeholder="Email" required />
+                        <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" autocomplete="email" placeholder="Email" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <?= session('errors.email') ?>
                         </div>
                     </div>
                     <div class="row">

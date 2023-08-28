@@ -30,5 +30,27 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li>
+        <li class="nav-item dropdown user-menu">
+            <?php $user = get_logged_in_user(); ?>
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src="<?= base_url('assets/img/user8-128x128.jpg') ?>" class="user-image img-circle elevation-2" alt="User Image">
+                <span class="d-none d-md-inline"><?= $user->username ?></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <!-- User image -->
+                <li class="user-header bg-primary">
+                    <img src="<?= base_url('assets/img/user8-128x128.jpg') ?>" class="img-circle elevation-2" alt="User Image">
+
+                    <p>
+                        <?= $user->username.' - '.$user->group ?>
+                        <small>Member since Nov. 2012</small>
+                    </p>
+                </li>
+                <li class="user-footer">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="<?= url_to('logout') ?>" class="btn btn-default btn-flat float-right">Sign out</a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>

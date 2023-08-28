@@ -9,7 +9,11 @@
         <img src="<?= base_url('assets/img/user8-128x128.jpg') ?>" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="#" class="d-block">Alexander Pierce</a>
+        <?php $user = get_logged_in_user(); ?>
+        <a href="#" class="d-block"><?= $user->username; ?></a>
+      </div>
+      <div>
+          <
       </div>
     </div>
     <div class="form-inline">
@@ -26,7 +30,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="<?= route_to('dashboard') ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashbord

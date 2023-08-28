@@ -14,6 +14,7 @@
           <h1><b>Login</b></h1>
         </div>
         <div class="card-body">
+            
             <?php if (session('error') !== null) : ?>
                 <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
             <?php elseif (session('errors') !== null) : ?>
@@ -32,22 +33,28 @@
             <?php if (session('message') !== null) : ?>
             <div class="alert alert-success" role="alert"><?= session('message') ?></div>
             <?php endif ?>
-            <form action="<?= url_to('login') ?>" method="post">
+            <form action="<?= url_to('login') ?>" method="post" id="login-form">
                 <?= csrf_field() ?>
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" p placeholder="Email" required />
+                    <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" inputmode="email" autocomplete="email" placeholder="Email" value="<?= old('email') ?>"/>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
                         </div>
                     </div>
+                    <div class="invalid-feedback">
+                        <?= session('errors.email') ?>
+                    </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="password" inputmode="text" autocomplete="password" placeholder="Password" required />
+                    <input type="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" inputmode="text" autocomplete="password" placeholder="Password"/>
                     <div class="input-group-append">
                         <div class="input-group-text">
                           <span class="fas fa-lock"></span>
                         </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        <?= session('errors.password') ?>
                     </div>
                 </div>
                 <div class="row">
@@ -56,7 +63,7 @@
                         <div class="form-check">
                             <label class="form-check-label icheck-primary">
                                 <input type="checkbox" name="remember" class="form-check-input">
-                                <b>Remember Me</b>
+                                <b>Remember me</b>
                             </label>
                         </div>
                         <?php endif; ?>
@@ -74,11 +81,6 @@
                 <div class="col-7">
                     <?php if (setting('Auth.allowMagicLinkLogins')) : ?>
                         <p class="mb-0"><a href="<?= url_to('magic-link') ?>">Forgot password ?</a></p>
-                    <?php endif ?>
-                </div>
-                <div class="col-5">
-                    <?php if (setting('Auth.allowRegistration')) : ?>
-                        <p class="mb-0"><a href="<?= url_to('register') ?>" class="pull-right">Create Account ?</a></p>
                     <?php endif ?>
                 </div>
             </div>

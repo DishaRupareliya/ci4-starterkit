@@ -13,54 +13,50 @@
                 <h1><b>Register</b></h1>
             </div>
             <div class="card-body">
-
-                <?php if (session('error') !== null) : ?>
-                    <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
-                <?php elseif (session('errors') !== null) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php if (is_array(session('errors'))) : ?>
-                            <?php foreach (session('errors') as $error) : ?>
-                                <?= $error ?>
-                                <br>
-                            <?php endforeach ?>
-                        <?php else : ?>
-                            <?= session('errors') ?>
-                        <?php endif ?>
-                    </div>
-                <?php endif ?>
-
                 <form action="<?= url_to('register') ?>" method="post">
                     <?= csrf_field() ?>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" inputmode="email" autocomplete="email" placeholder="Email" required />
+                        <input type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" inputmode="email" autocomplete="email" placeholder="Email Address" value="<?= old('email') ?>" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
                         </div>
+                        <div class="invalid-feedback">
+                            <?= session('errors.email') ?>
+                        </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="username" inputmode="text" autocomplete="username" placeholder="Username" required />
+                        <input type="text" class="form-control <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" inputmode="text" autocomplete="username" placeholder="Username" value="<?= old('username') ?>" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
+                        <div class="invalid-feedback">
+                            <?= session('errors.username') ?>
+                        </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" inputmode="text" autocomplete="new-password" placeholder="Password" required />
+                        <input type="password" class="form-control <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" inputmode="text" autocomplete="new-password" placeholder="Password"  />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
+                        <div class="invalid-feedback">
+                            <?= session('errors.password') ?>
+                        </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password_confirm" inputmode="text" autocomplete="off" placeholder="Confirm password" required />
+                        <input type="password" class="form-control <?php if(session('errors.password_confirm')) : ?>is-invalid<?php endif ?>" name="password_confirm" inputmode="text" autocomplete="off" placeholder="Confirm password" />
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            <?= session('errors.password_confirm') ?>
                         </div>
                     </div>
                     <div class="row">
