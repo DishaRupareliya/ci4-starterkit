@@ -1,7 +1,7 @@
 <?= $this->extend('master') ?>
-<?= $this->section('title') ?>Dashboard<?= $this->endSection() ?>
-<?= $this->section('content_header') ?><h1>Dashboard</h1><?= $this->endSection() ?>
-<?= $this->section('link') ?>Dashboard<?= $this->endSection() ?>
+<?= $this->section('title') ?><?= $title ?><?= $this->endSection() ?>
+<?= $this->section('content_header') ?><h1><?= $title ?></h1><?= $this->endSection() ?>
+<?= $this->section('link') ?><?= $title ?><?= $this->endSection() ?>
 <?= $this->section('content') ?>
 
 <div class="row">

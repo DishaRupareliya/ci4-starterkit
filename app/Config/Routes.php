@@ -50,9 +50,4 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
 
-$defaultNamespace = [
-    'filter' => 'session',
-];
 
-// General Routes
-$routes->get('dashboard', 'Home::dashboard', ['as' => 'dashboard'] , $defaultNamespace);

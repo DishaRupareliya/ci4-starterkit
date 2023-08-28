@@ -14,6 +14,8 @@
   </div>
 </section>
 <section class="content">
-  <?= $this->renderSection('content') ?>
+  <div class="container-fluid">
+    <?= $this->renderSection('content') ?>
+  </div>
 </section>
 

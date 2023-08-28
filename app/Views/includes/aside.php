@@ -37,6 +37,29 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              User Management
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-users nav-icon"></i>
+                <p>User Profile</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= route_to('admin/user') ?>" class="nav-link">
+                <i class="fas fa-user-edit nav-icon"></i>
+                <p>User</p>
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
