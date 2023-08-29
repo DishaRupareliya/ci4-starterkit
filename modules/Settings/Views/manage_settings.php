@@ -22,7 +22,7 @@
 	<div class="col-sm-9">
 		<div class="card">
 			<div class="card-body">
-				<form id="settings_form" enctype="multipart/form-data">
+				<form id="settings_form" enctype="multipart/form-data" method="post">
 					<div id="display">
 
 					</div>
