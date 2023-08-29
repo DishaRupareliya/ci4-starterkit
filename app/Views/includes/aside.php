@@ -60,6 +60,30 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item">
+          <a href="<?= route_to('permissions') ?>" class="nav-link">
+            <i class="fas fa-venus-mars"></i>
+            <p>
+              Permission
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= route_to('products') ?>" class="nav-link">
+            <i class="fas fa-yin-yang"></i>
+            <p>
+              Products
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?= route_to('activity_log') ?>" class="nav-link">
+            <i class="fab fa-app-store-ios"></i>
+            <p>
+              Activity Log
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
