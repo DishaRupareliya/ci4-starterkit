@@ -84,6 +84,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="<?= base_url('admin/settings') ?>" class="nav-link">
+            <i class="fas fa-cogs"></i>
+            <p>
+              Settings
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

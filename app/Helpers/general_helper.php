@@ -10,4 +10,10 @@ if (!function_exists("get_logged_in_user")) {
 	}
 }
 
+if(! function_exists('get_option')) {
+	function get_option($value) {
+		return service('settings')->get('App.'.$value);
+	}
+}
+
 ?>
