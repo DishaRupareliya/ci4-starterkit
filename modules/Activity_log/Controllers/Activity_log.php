@@ -25,26 +25,4 @@ class Activity_log extends \App\Controllers\BaseController
     }
 	     echo view('Activity_log\Views\index_activity_log');
   }
-
-  /**
-   * INSERT ACTIVITY LOG
-   */
-  public function insert() {
-	 echo view('Activity_log\Views\insert_activity_log');
-  }
-
-  /**
-   * UPDATE ACTIVITY LOG
-   */
-  public function update() {
-	 echo view('Activity_log\Views\update_activity_log');
-  }
-
-  /**
-   * DELETE ACTIVITY LOG
-   */
-  public function delete() {
-	 echo view('Activity_log\Views\delete_activity_log');
-  }
-
 }

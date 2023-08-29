@@ -1,1 +1,0 @@
-<h1>UPDATE ACTIVITY LOG</h1>

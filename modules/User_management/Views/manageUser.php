@@ -1,3 +1,4 @@
+<?= $this->include('App\Views\load\select2') ?>
 <?= $this->extend('master') ?>
 <?= $this->section('title') ?><?= $title ?><?= $this->endSection() ?>
 <?= $this->section('content_header') ?><h1><?= $title ?></h1><?= $this->endSection() ?>
@@ -15,11 +16,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="<?= route_to('admin/user/manage') ?>" method="post" class="form-horizontal">
+                <form action="<?= route_to('admin/user/saveUser') ?>" method="post" class="form-horizontal">
                     <?= csrf_field() ?>
                     <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Active</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <select class="form-control select" name="active" style="width: 100%;">
                                 <option value="1" selected="selected">Active</option>
                                 <option value="0">Non Active</option>
@@ -28,7 +29,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -44,7 +45,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -60,7 +61,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -76,7 +77,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputName2" class="col-sm-2 col-form-label">Repeat Password</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
@@ -92,9 +93,11 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Permission</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <select class="form-control select" name="permission[]" multiple="multiple" data-placeholder="Permission" style="width: 100%;">
-                            <option></option>
+                            <?php foreach ($permissions as $permission) { ?>
+                                <option <?= in_array($permission['id'], old('permission', [])) ? 'selected' : '' ?> value="<?= $permission['id'] ?>"><?= $permission['name'] ?></option>
+                            <?php } ?>
                             </select>
                             <?php if (session('error.permission')) { ?>
                                 <h6 class="text-danger"><?= session('error.permission') ?></h6>
@@ -103,7 +106,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Role</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-10">
                             <select class="form-control select" name="role[]" multiple="multiple" data-placeholder="Role" style="width: 100%;">
                             <option></option>
                             </select>
@@ -113,7 +116,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                             <div class="float-right">
                                 <div class="btn-group">
                                     <button type="submit" class="btn btn-sm btn-block btn-primary">

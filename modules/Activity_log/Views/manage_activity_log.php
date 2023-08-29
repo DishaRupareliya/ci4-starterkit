@@ -1,1 +1,0 @@
-<h1>MANAGE ACTIVITY LOG</h1>

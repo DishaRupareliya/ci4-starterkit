@@ -1,3 +1,4 @@
+<?= $this->include('App\Views\load\datatables') ?>
 <?= $this->extend('master') ?>
 <?= $this->section('title') ?>Activity Log<?= $this->endSection() ?>
 <?= $this->section('content_header') ?><h1>Activity Log</h1><?= $this->endSection() ?>

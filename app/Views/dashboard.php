@@ -1,3 +1,5 @@
+<?= $this->include('App\Views\load\datatables') ?>
+<?= $this->include('App\Views\load\select2') ?>
 <?= $this->extend('master') ?>
 <?= $this->section('title') ?><?= $title ?><?= $this->endSection() ?>
 <?= $this->section('content_header') ?><h1><?= $title ?></h1><?= $this->endSection() ?>

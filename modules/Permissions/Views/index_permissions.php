@@ -1,3 +1,4 @@
+<?= $this->include('App\Views\load\datatables') ?>
 <?= $this->extend('master') ?>
 <?= $this->section('title') ?>Permission<?= $this->endSection() ?>
 <?= $this->section('content_header') ?><h1>Permission</h1><?= $this->endSection() ?>
