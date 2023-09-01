@@ -28,7 +28,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button type="submit" class="btn btn-primary" id="save_setting">Save</button>
+					<button type="button" class="btn btn-primary" id="save_setting">Save</button>
 				</div>
 			</form>
 		</div>
@@ -58,18 +58,22 @@
 		});
 
 		$(document).on('click', '#save_setting', function(event) {
-			var FormData = $('#settings_form').serialize();
+			var formData = new FormData($('#settings_form')[0]);
 			$.ajax({
 				url: '<?= site_url('admin/save_settings'); ?>',
 				type: 'POST',
 				dataType : 'JSON',
-				data: FormData,
+				data : formData,
+				contentType: false,  
+				cache: false,  
+				processData:false,  
 			}).done(function(res) {
 				if(res.success == true) {
 					Toast.fire({
 	                    icon: 'success',
 	                    title: 'Settings updated succesfully'
 	                });
+	                location.reload(false);
 				}
 			});
 		});
