@@ -93,22 +93,18 @@
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>
 <script>
-      //var selected_versions;
     var selected_product_names;
-
     var productsTable = $('#table-product_management').DataTable({
         dom: '<"row"<"col-md-3"l><"col-md-6"B><"col-md-3"f>><"row"<"col-md-12 mb-2"t>><"row mb-3"<"col"i><"col"p>>',
-        buttons: [
-            'colvis',
-            'excel',
-            'csv',
-            'copy',
-            'pdf',
-            'print'
-        ],
+        buttons: exportButton,
         processing: true,
         serverSide: true,
-        responsive: true,
+        responsive: responsive_table,
+        lengthMenu: [
+            length_options,
+            length_options_names
+        ],
+        iDisplayLength:default_length,
         ajax: {
             url : '<?php echo base_url('products'); ?>',
             method : 'POST',

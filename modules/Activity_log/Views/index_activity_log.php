@@ -38,17 +38,15 @@
 
     var itemsTable = $('#table-activity_log').DataTable({
         dom: '<"row"<"col-md-3"l><"col-md-6"B><"col-md-3"f>><"row"<"col-md-12 mb-2"t>><"row mb-3"<"col"i><"col"p>>',
-        buttons: [
-            'colvis',
-            'excel',
-            'csv',
-            'copy',
-            'pdf',
-            'print'
-        ],
+        buttons: exportButton,
         processing: true,
         serverSide: true,
-        responsive: true,
+        responsive: responsive_table,
+        lengthMenu: [
+            length_options,
+            length_options_names
+        ],
+        iDisplayLength:default_length,
         ajax: {
             url : '<?php echo site_url('activity_log'); ?>',
             method : 'POST',
