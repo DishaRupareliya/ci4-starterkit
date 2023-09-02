@@ -13,4 +13,5 @@ $routes->group('admin',$settings_module_namespace, function($routes) {
 	$routes->post('save_settings', 'Settings::saveSettings');
 	$routes->post('delete/(:any)', 'Settings::deleteSettings/$1');
 	$routes->post('send', 'Settings::sendTestMail');
+	$routes->post('backup', 'Settings::backup');
 });

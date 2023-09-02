@@ -1,8 +1,8 @@
 <div  id="branch_table_view">
     <div class="mb-3">
-        <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i>Delete</a>
-        <a href="#" class="btn btn-secondary"><i class="fas fa-sync-alt mr-2"></i>Refresh</a>
-        <a href="#" class="btn btn-info"><i class="fas fa-cloud-download-alt mr-2"></i>Database Backup
+        <a href="javascript:void(0)" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i>Delete All</a>
+        <a href="javascript:void(0)" class="btn btn-secondary"><i class="fas fa-sync-alt mr-2"></i>Refresh</a>
+        <a href="javascript:void(0)" class="btn btn-info" id="database_backup"><i class="fas fa-cloud-download-alt mr-2"></i>Database Backup
         </a>  
     </div>
     <div id="table_view">
@@ -20,3 +20,16 @@
         </table>
     </div>
 </div>
+<script>
+   $(function () {
+        $('body').on('click', '#database_backup', function(event) {
+            $.ajax({
+                url: '<?= site_url('admin/backup') ?>',
+                type: 'POST',
+                dataType: 'json',
+            }).done(function(res) {
+                console.log(res);
+            });
+        });
+   });
+</script>

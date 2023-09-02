@@ -1,8 +1,11 @@
 <?php 
 namespace Settings\Controllers;
 use CodeIgniter\Email\Email;
+use BackupManager\Filesystems\Destination;
+use App\Libraries\BackupSettings;
+use Settings\Controllers\Loader;
 
-class Settings extends \App\Controllers\BaseController
+class Settings extends Loader
 {
     public function index() {
         $viewData = [];
@@ -60,4 +63,35 @@ class Settings extends \App\Controllers\BaseController
 
         return $this->response->setJSON($data);
     }
+
+    public function backup()
+    {
+        if (!class_exists('BackupManager\Filesystems\Destination')) {
+            return;
+        }
+
+        $manager = require 'bootstrap.php';
+        $manager
+            ->makeBackup()
+            ->run('development', [
+                new Destination('local', 'test/backup.sql'),
+                new Destination('s3', 'test/dump.sql')
+            ], 'gzip');
+        //$data = BackupSettings::backup();
+        exit();
+        // $path = base_url('uploads/dbbackup/') ;
+        // $filename = $dbname.'_'.date('Y-m-d').'.sql';
+        // $prefs = ['filename' => $filename];
+
+        // $util = (new \CodeIgniter\Database\Database())->loadUtils($db);
+        // $backup = $util->backup($prefs,$db);
+        // echo "<pre>";
+        // print_r ($backup);
+        // echo "</pre>";
+        // exit();
+            
+        // write_file($path.$filename.'.gz', $backup); 
+        // return $this->response->download($path.$filename.'.gz',null);
+    }
+
 }
