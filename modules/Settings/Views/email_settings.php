@@ -43,7 +43,7 @@
         </div>
         <div class="col-md-6 col-sm-12">
             <label class="form-label">SMTP Password</label>
-            <input type="password" class="form-control" placeholder="Enter password" id="smtp_password" name="smtp_password" required value="<?= decode_values(get_option('smtp_password'), 'smtp_pass'); ?>" disabled>
+            <input type="password" class="form-control" placeholder="Enter password" id="smtp_password" name="smtp_password" required value="<?= decode_values(get_option('smtp_password'), config('App')->encryption_key); ?>" disabled>
         </div>
     </div>
 </div>
@@ -98,7 +98,10 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('.select').select2();
+        $('.select').select2({
+          theme: 'bootstrap4'
+        });
+        
         $('#email_encryption_settings').hide();
         var checked = $('input[name=email_protocol]:checked').val();
         if(checked == 'send_mail' || checked == 'smtp') {

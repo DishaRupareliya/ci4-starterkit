@@ -29,7 +29,7 @@ if (!function_exists('send_app_mail')) {
 			$email_config["SMTPHost"] = get_option("smtp_host");
 			$email_config["SMTPPort"] = get_option("smtp_port");
 			$email_config["SMTPUser"] = get_option("smtp_username");
-			$email_config["SMTPPass"] = decode_values(get_option('smtp_password'), "smtp_pass");
+			$email_config["SMTPPass"] = decode_values(get_option('smtp_password'), config('App')->encryption_key);
 			$email_config["SMTPCrypto"] = get_option("smtp_encryption");
 			
 			if (!$email_config["SMTPCrypto"]) {
@@ -40,6 +40,7 @@ if (!function_exists('send_app_mail')) {
 	        	$email_config["SMTPCrypto"] = "";
 	        }
 	    }
+	    
 	    $email = \CodeIgniter\Config\Services::email();
 	    $email->initialize($email_config);
 	    $email->clear(true); //clear previous message and attachment
@@ -139,10 +140,10 @@ if (!function_exists('encode_values')) {
 }
 
 if (!function_exists('get_encrypter')) {
-	function get_encrypter($encryption_key='') 
+	function get_encrypter() 
 	{
-		$config = new \Config\Encryption();
-		$config->key= config('App')->encryption_key;
+		$config         = new \Config\Encryption();
+		$config->key    = config('App')->encryption_key;
 		$config->driver = 'OpenSSL';
 		return \Config\Services::encrypter($config);
 	}

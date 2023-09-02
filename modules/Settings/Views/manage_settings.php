@@ -38,6 +38,7 @@
 <?= $this->section('script') ?>
 <script>
 	$(function() {
+
 		data = {title : 'General Settings', settings_view_name : 'general_settings', csrf : $('meta[name="csrf-token"]').attr('content')};
 		$('#setting_title').html('General Settings');
 		$('#display').load('<?= site_url('admin/settings_view'); ?>', data);

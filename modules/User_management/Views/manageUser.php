@@ -134,6 +134,8 @@
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>
   <script>
-  $('.select').select2();
+    $('.select').select2({
+        theme: 'bootstrap4'
+    });
   </script>
 <?= $this->endSection() ?>

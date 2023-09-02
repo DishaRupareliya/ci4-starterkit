@@ -175,5 +175,5 @@ class App extends BaseConfig
      * @see http://www.w3.org/TR/CSP/
      */
     public bool $CSPEnabled = false;
-    public $encryption_key = "c96598f0551c2b";
+    public $encryption_key = "aBigsecret_ofAtleast32Characters";
 }

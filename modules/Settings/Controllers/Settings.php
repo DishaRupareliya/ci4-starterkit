@@ -30,7 +30,7 @@ class Settings extends \App\Controllers\BaseController
 
         foreach ($posted_data as $key => $settings) {
             if ('smtp_password' == $key) {
-                $settings = encode_values($settings, 'smtp_pass');
+                $settings = encode_values($settings, config('App')->encryption_key);
             }
             service('settings')->set('App.'.$key, $settings);
         }
