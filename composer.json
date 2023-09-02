@@ -13,7 +13,8 @@
         "agungsugiarto/codeigniter4-eloquent": "^2.0",
         "codeigniter4/settings": "^2.1",
         "bainternet/php-hooks": "^1.0",
-        "codeigniter4/shield": "dev-develop"
+        "codeigniter4/shield": "dev-develop",
+        "backup-manager/backup-manager": "^3.1"
     },
     "require-dev": {
         "mikey179/vfsstream": "1.6.*",
