@@ -1,20 +1,15 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <a href="../../index3.html" class="brand-link">
-    <img src="<?= base_url('assets/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+  <!-- Set company logo: Start -->
+  <div class="logo">
+  <a href="<?= base_url('/') ?>">
+    <?php if (!empty(get_option('logo'))) { ?>
+      <img src="<?= base_url('uploads/general/' . get_option('logo')) ?>">
+    <?php } ?>
   </a>
+  </div>
+  <!-- Over -->
   <div class="sidebar">
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <div class="image">
-        <img src="<?= base_url('assets/img/user8-128x128.jpg') ?>" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <?php $user = get_logged_in_user(); ?>
-        <a href="#" class="d-block"><?= $user->username; ?></a>
-      </div>
-      <div>
-          <
-      </div>
+    <div class="user-panel pb-3 mb-3 d-flex">
     </div>
     <div class="form-inline">
       <div class="input-group" data-widget="sidebar-search">

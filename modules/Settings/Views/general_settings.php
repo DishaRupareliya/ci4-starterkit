@@ -1,17 +1,17 @@
 <div class="form-group mb-3 row">
 	<label class="form-label col-sm-2 col-form-label">Favicon</label>
-	<?php if (empty(get_option('favicon'))): ?>
+	<?php if (empty(get_option('favicon_logo'))): ?>
 		<div class="col-sm-10" id="favicon_field">
-			<input type="file" class="form-control" name="favicon" id="favicon" accept="image/*">
+			<input type="file" class="form-control" name="favicon_logo" id="favicon_logo" accept="image/*">
 			<div class="col-md-9">
-				<img src="<?= base_url().'/uploads/general/'.get_option('favicon').'' ?>" id="preview-favicon" class="img img-responsive mt-3" alt="" width="40%">	
+				<img src="<?= base_url().'/uploads/general/'.get_option('favicon_logo').'' ?>" id="preview-favicon" class="img img-responsive mt-3" alt="" width="40%">	
 			</div>
 		</div>
 	<?php endif ?>
-	<?php if (!empty(get_option('favicon'))): ?>
+	<?php if (!empty(get_option('favicon_logo'))): ?>
 		<div class="col-sm-10" id="favicon_view">
-			<img src="<?= base_url().'/uploads/general/'.get_option('favicon').'' ?>" alt="" class="img img-responsive mt-3" width="40%">
-			<a href="javascript:void(0)" data-name="favicon" id="deleteSettings"><i class="fas fa-times"></i></a>
+			<img src="<?= base_url().'/uploads/general/'.get_option('favicon_logo').'' ?>" alt="" class="img img-responsive mt-3" width="40%">
+			<a href="javascript:void(0)" data-name="favicon_logo" id="deleteSettings"><i class="fas fa-times"></i></a>
 		</div>
 	<?php endif ?>
 </div>
@@ -31,12 +31,6 @@
 	<?php endif ?>
 </div>
 <div class="form-group mb-3 row">
-	<label class="form-label col-sm-2 col-form-label">Site Name</label>
-	<div class="col-sm-10">
-		<input type="text" class="form-control" id="siteName" name="siteName" placeholder="Enter Site Name" value="<?= get_option('siteName') ?>" required>
-	</div>
-</div>
-<div class="form-group mb-3 row">
 	<label class="form-label col-sm-2 col-form-label">Footer</label>
 	<div class="col-sm-10">
 		<input type="text" class="form-control" id="footer" name="footer" placeholder="Enter Footer" value="<?= get_option('footer') ?>" required>
@@ -45,7 +39,7 @@
 <script>
 	$(document).ready(function() {
 		$('#preview-favicon').hide();
-		$('#favicon').change(function(){
+		$('#favicon_logo').change(function(){
 			let reader = new FileReader();
 			reader.onload = (e) => {
 				$('#preview-favicon').show();
