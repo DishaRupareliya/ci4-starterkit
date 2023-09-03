@@ -157,4 +157,24 @@ if (!function_exists('get_array_value')) {
 		}
 	}
 }
+
+if (!function_exists('list_files')) {
+	function list_files($directoryPath='')
+	{
+		$fileNames = [];
+		// Check if the directory exists
+		if (is_dir($directoryPath)) {
+		    $files = scandir($directoryPath);
+
+		    // Loop through the files and display only files (not directories)
+		    foreach ($files as $file) {
+		        if (is_file($directoryPath . DIRECTORY_SEPARATOR . $file)) {
+		        	array_push($fileNames, $file);
+		        }
+		    }
+		}
+
+		return $fileNames;
+	}
+}
 ?>
