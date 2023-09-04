@@ -177,4 +177,16 @@ if (!function_exists('list_files')) {
 		return $fileNames;
 	}
 }
+
+if (!function_exists('formatFileSize')) {
+	function formatFileSize($bytes) {
+	    $sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+	    $i = 0;
+	    while ($bytes >= 1024 && $i < count($sizes) - 1) {
+	        $bytes /= 1024;
+	        $i++;
+	    }
+	    return round($bytes, 2) . ' ' . $sizes[$i];
+	}
+}
 ?>

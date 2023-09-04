@@ -1,7 +1,6 @@
 <div  id="branch_table_view">
-    <div class="mb-3">
-        <a href="javascript:void(0)" class="btn btn-secondary"><i class="fas fa-sync-alt mr-2"></i>Refresh</a>
-        <a href="javascript:void(0)" class="btn btn-info" id="database_backup"><i class="fas fa-cloud-download-alt mr-2"></i>Database Backup
+    <div class="mb-3 float-right">
+        <a href="javascript:void(0)" class="btn btn-primary" id="database_backup"><i class="fas fa-cloud-download-alt mr-2"></i>Database Backup
         </a>  
     </div>
     <div id="table_view">
@@ -10,6 +9,7 @@
                 <tr>
                     <th>Database Backup</th>
                     <th>Date</th>
+                    <th>File Size</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -17,7 +17,9 @@
                 <?php $backups = list_files(ROOTPATH.'public/uploads/backups'); ?>
                 <?php foreach ($backups as $backup) {
                         $fullPath              = ROOTPATH.'public/uploads/backups/' . $backup;
-                        $backupNameNoExtension = preg_replace('/\\.[^.\\s]{3,4}$/', '', $backup); ?>
+                        $backupNameNoExtension = preg_replace('/\\.[^.\\s]{3,4}$/', '', $backup);
+                        $fileSizeFormatted = formatFileSize(filesize($fullPath));
+                    ?>
                 <tr>
                     <td>
                         <a href="<?php echo site_url('admin/download/' . $backupNameNoExtension); ?>">
@@ -25,13 +27,13 @@
                         </a>
                     </td>
                     <td>
-                        1
+                        <?php echo date('Y-m-d H:m:s', filectime($fullPath)); ?>
                     </td>
                     <td>
-                        <a href="<?php echo site_url('admin/deleteBackup/' . $backup); ?>"
-                            class="tw-mt-px tw-text-neutral-500 hover:tw-text-neutral-700 focus:tw-text-neutral-700 _delete">
-                            <i class="fas fa-trash-alt mr-2"></i>
-                        </a>
+                        <?php echo $fileSizeFormatted ?>
+                    </td>
+                    <td>
+                        <a href="<?php echo site_url('admin/deleteBackup/' . $backup); ?>" class="ml-4"><i class="fas fa-trash-alt "></i></a>
                     </td>
                 </tr>
                 <?php } ?>

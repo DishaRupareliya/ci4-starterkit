@@ -14,7 +14,6 @@
 		<div class="list-group list-group-transparent mb-3">
 			<a class="list-group-item list-group-item-action d-flex align-items-center active" href="#" id="general_settings"><i class="fas fa-cog mr-2"></i></i>General Settings</a>
 			<a class="list-group-item list-group-item-action d-flex align-items-center" href="#" id="email_settings"><i class="far fa-envelope mr-2"></i>Email Settings</a>
-			<a class="list-group-item list-group-item-action d-flex align-items-center" href="#" id="recaptcha_settings"><i class="fas fa-key mr-2"></i>Re-captcha Settings</a>
 			<a class="list-group-item list-group-item-action d-flex align-items-center" href="#" id="miscellaneous_settings"><i class="fas fa-list-ul mr-2"></i>Miscellaneous Settings</a>
 			<a class="list-group-item list-group-item-action d-flex align-items-center" href="#" id="database_settings"><i class="fas fa-database mr-2"></i>Database Settings</a>
 		</div>
